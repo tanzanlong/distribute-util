@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- ojdbc14.jar -->
+	<!-- <classPathEntry location="E:/soft/jdbc/oracle/ojdbc6-1.0.jar"/> -->
+	<classPathEntry
+		location="F:/java_soft/mysql/lib/mysql-connector-java-5.1.14.jar" />
+
+	<!-- 自动生成mysql -->
+	<context id="basic" targetRuntime="MyBatis3">
+		<!-- <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/> 
+			<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/> <plugin 
+			type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/> <plugin 
+			type="org.mybatis.generator.plugins.RenameExampleClassPlugin"> <property 
+			name="searchString" value="Example$"/> <property name="replaceString" value="Criteria"/> 
+			</plugin> -->
+
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.212.17:3306/trade_center" userId="root"
+			password="111111" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.baibei.newp.trade.order.entity"
+			targetProject="src/main/java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="true" />
+
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="mybatis"
+			targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="com.baibei.newp.trade.order.mapper"
+			targetProject="src/main/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+			<property name="methodNameCalculator" value="extended" />
+		</javaClientGenerator>
+
+		<!-- <table tableName="t_trade_order" domainObjectName="TradeOrder" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"></table> <table tableName="t_entrust_order" 
+			domainObjectName="EntrustOrder" enableCountByExample="false" enableUpdateByExample="false" 
+			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
+			<table tableName="t_contract_order" domainObjectName="ContractOrder" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"></table> -->
+
+		<table tableName="t_trade_serial" domainObjectName="TradeSerial"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+
+	</context>
+</generatorConfiguration>

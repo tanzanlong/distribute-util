@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd   
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<description>配置</description>
+
+	<!-- 引入配置文件 -->
+	<beans profile="dev">
+		<bean id="propertyPlaceholderConfigurer"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:environments/dev/system.properties</value>
+				</list>
+			</property>
+			<property name="fileEncoding">
+				<value>UTF-8</value>
+			</property>
+		</bean>
+	</beans>
+
+	<beans profile="fat">
+		<bean id="propertyPlaceholderConfigurer"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:environments/fat/system.properties</value>
+				</list>
+			</property>
+			<property name="fileEncoding">
+				<value>UTF-8</value>
+			</property>
+		</bean>
+	</beans>
+	
+	<beans profile="test2">
+		<bean id="propertyPlaceholderConfigurer"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:environments/test2/system.properties</value>
+				</list>
+			</property>
+			<property name="fileEncoding">
+				<value>UTF-8</value>
+			</property>
+		</bean>
+	</beans>
+
+	<beans profile="prod">
+		<bean id="propertyPlaceholderConfigurer"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:environments/prod/system.properties</value>
+				</list>
+			</property>
+			<property name="fileEncoding">
+				<value>UTF-8</value>
+			</property>
+		</bean>
+	</beans>
+
+
+	<beans profile="devlocal">
+		<bean id="propertyPlaceholderConfigurer"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:environments/devlocal/system.properties</value>
+				</list>
+			</property>
+			<property name="fileEncoding">
+				<value>UTF-8</value>
+			</property>
+		</bean>
+	</beans>
+
+
+
+	<beans profile="uat">
+		<bean id="propertyPlaceholderConfigurer"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>classpath:environments/uat/system.properties</value>
+				</list>
+			</property>
+			<property name="fileEncoding">
+				<value>UTF-8</value>
+			</property>
+		</bean>
+	</beans>
+
+</beans>
